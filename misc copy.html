@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+
+        }
+
+        .gridCon {
+            display: grid;
+            width: 100%;
+            /* background-color: green; */
+            height: 300vh;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-areas:
+                " i1 i2 i3 i4 i5"
+                " i6 i7 i8 i9 i10"
+                " i11 i12 i13 i14 i15";
+            /*! gap: 10px; */
+
+
+        }
+
+        .item {
+            height: 100vh;
+            /* border: 1px solid black; */
+            /* margin-bottom: 10px; */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 0;
+            /* animation: anime 25s ease-in infinite; */
+            padding: 0 10px;
+            /*! gap: 10px; */
+        }
+
+        .item2,
+        .item7,
+        .item12,
+        .item4,
+        .item9,
+        .item14 {
+            /* animation: anime 25s ease-in infinite reverse; */
+        }
+
+        /* @keyframes anime {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-200vh);
+            }
+        } */
+
+        .item1 {
+            grid-area: i1;
+        }
+
+        .item2 {
+            grid-area: i2;
+        }
+
+        .item3 {
+            grid-area: i3;
+        }
+
+        .item4 {
+            grid-area: i4;
+        }
+
+        .item5 {
+            grid-area: i5;
+        }
+
+        .item6 {
+            grid-area: i6;
+        }
+
+        .item7 {
+            grid-area: i7;
+        }
+
+        .item8 {
+            grid-area: i8;
+        }
+
+        .item9 {
+            grid-area: i9;
+        }
+
+        .item10 {
+            grid-area: i10;
+
+        }
+
+        .item11 {
+            grid-area: i11;
+        }
+
+        .item12 {
+            grid-area: i12;
+        }
+
+        .item13 {
+            grid-area: i13;
+        }
+
+        .item14 {
+            grid-area: i14;
+        }
+
+        .item15 {
+            grid-area: i15;
+        }
+
+        .item16 {
+            display: none;
+        }
+
+        .gridCon>div:nth-child(odd) {
+            /* background-color: lightblue; */
+        }
+
+
+        .imgDiv {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 15px;
+            height: 30%;
+            position: relative;
+            z-index: 2;
+
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            /* height: 30%; */
+            /* border-radius: 30px; */
+            /* border: 2px solid black; */
+            /* margin-bottom: 8px; */
+            object-fit: cover;
+            object-position: center;
+
+            /* margin: 0 10px; */
+        }
+
+        .imgDivF {
+            width: 20%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 6;
+
+
+        }
+
+        .imgDivF img {
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+            /* display: none; */
+            /* z-index: 4; */
+            opacity: 0;
+
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* background-color: red;
+            opacity: .5; */
+            z-index: 11;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="imgDivF">
+        <img src="https://images.unsplash.com/photo-1721332155637-8b339526cf4c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="">
+    </div>
+    <div class="con">
+        <div class="gridCon">
+            <div class="item item1">
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1721332155637-8b339526cf4c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://plus.unsplash.com/premium_photo-1664361480872-6416aab14696?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1500835556837-99ac94a94552?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="">
+                </div>
+
+            </div>
+            <div class="item item2">
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://plus.unsplash.com/premium_photo-1679830513869-cd3648acb1db?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dHJhdmVsfGVufDB8fDB8fHww"
+                        alt="">
+                </div>
+            </div>
+            <div class="item item3">
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1476900543704-4312b78632f8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://plus.unsplash.com/premium_photo-1719843013722-c2f4d69db940?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+            </div>
+            <div class="item item4">
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1512100356356-de1b84283e18?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1512757776214-26d36777b513?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://plus.unsplash.com/premium_photo-1677343210638-5d3ce6ddbf85?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+            </div>
+            <div class="item item5">
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1470074558764-4e577e98bc85?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://plus.unsplash.com/premium_photo-1681487906725-ecd65970ac66?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1499063078284-f78f7d89616a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+            </div>
+            <div class="item item6">
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1494783367193-149034c05e8f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1541336318489-083c7d277b8e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njh8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1512100356356-de1b84283e18?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+            </div>
+            <div class="item item7">
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTl8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1498354178607-a79df2916198?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjR8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1500815845799-7748ca339f27?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+            </div>
+            <div class="item item8">
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1500301111609-42f1aa6df72a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://plus.unsplash.com/premium_photo-1675484743423-57da4e8011c2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+            </div>
+            <div class="item item9">
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://plus.unsplash.com/premium_photo-1679830513873-5f9163fcc04a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDl8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1476157808914-828d68f0f401?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTB8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1505164294036-5fad98506d20?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTR8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+            </div>
+            <div class="item item10">
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://plus.unsplash.com/premium_photo-1676139860329-4997a02843c0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTd8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1568849676085-51415703900f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTV8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjB8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+            </div>
+            <div class="item item11">
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1721332155637-8b339526cf4c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://plus.unsplash.com/premium_photo-1664361480872-6416aab14696?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1500835556837-99ac94a94552?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="">
+                </div>
+
+            </div>
+            <div class="item item12">
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://plus.unsplash.com/premium_photo-1679830513869-cd3648acb1db?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dHJhdmVsfGVufDB8fDB8fHww"
+                        alt="">
+                </div>
+            </div>
+            <div class="item item13">
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1476900543704-4312b78632f8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://plus.unsplash.com/premium_photo-1719843013722-c2f4d69db940?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+            </div>
+            <div class="item item14">
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1512100356356-de1b84283e18?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1512757776214-26d36777b513?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://plus.unsplash.com/premium_photo-1677343210638-5d3ce6ddbf85?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+            </div>
+            <div class="item item15">
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1470074558764-4e577e98bc85?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://plus.unsplash.com/premium_photo-1681487906725-ecd65970ac66?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1499063078284-f78f7d89616a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+            </div>
+            <div class="item item16">
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1512100356356-de1b84283e18?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://images.unsplash.com/photo-1512757776214-26d36777b513?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+                <div class="imgDiv">
+                    <div class="overlay" data-url="hi"></div>
+                    <img src="https://plus.unsplash.com/premium_photo-1677343210638-5d3ce6ddbf85?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+    integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+
+    var img = document.querySelectorAll(".imgDiv img")
+    var item = document.querySelectorAll('.item')
+    var floatImg = document.querySelector('.imgDivF img');
+    var flDiv = document.querySelector('.imgDivF');
+
+    var t1
+    var t2
+
+    img.forEach(element => {
+        element.addEventListener('mouseover', () => {
+            floatImg.src = element.src;
+
+            gsap.to(floatImg, {
+                // opacity: 1,
+                duration: .1
+            })
+
+            let tl = gsap.timeline()
+
+            tl.to(element, {
+                filter: 'grayscale(100%)',
+                duration: .5,
+                ease: "power2.in",
+                scale: 1.1
+            })
+
+            tl.to('img', {
+                duration: .1,
+
+                ease: 'power4.inOut',
+                onComplete: () => {
+                    t1.pause();
+                    t2.pause();
+                }
+            })
+
+
+
+
+            // element.style.filter="grayscale(100%)"
+            // pauseAni(item);
+        })
+    });
+
+    // floatImg.addEventListener('mouseover',()=>{   
+    //         floatImg.style.opacity=1;
+    //      })
+
+    img.forEach(element => {
+        element.addEventListener('mouseout', () => {
+
+            gsap.to(floatImg, {
+                // opacity: 1,
+                duration: .1,
+                delay: .1
+            })
+
+            let tl = gsap.timeline()
+
+            tl.to(element, {
+                filter: 'grayscale(0%)',
+                duration: .5,
+                ease: "power2.in",
+                scale: 1
+
+            })
+
+            tl.to('img', {
+                duration: .1,
+
+                ease: 'power4.inOut',
+                onComplete: () => {
+                    t1.play();
+                    t2.play();
+                }
+            })
+            // element.style.filter="grayscale(0%)"
+            // playAni(item);
+        })
+    });
+
+    function pauseAni(elem) {
+        elem.forEach((e) => {
+
+            e.style.animationPlayState = 'paused';
+        })
+    }
+
+    function playAni(elem) {
+        elem.forEach((e) => {
+
+            e.style.animationPlayState = 'running';
+        })
+    }
+
+    function moveImg() {
+
+        t1 = gsap.timeline()
+        t1.to('.item', {
+            transform: 'translateY(-200vh)',
+            duration: 25,
+            repeat: -1,
+            ease: 'none',
+
+        })
+
+        t2 = gsap.timeline()
+        t2.from('.item2,.item7,.item12,.item4,.item9,.item14', {
+            transform: 'translateY(-200vh)',
+            duration: 25,
+            repeat: -1,
+            ease: 'none',
+            // reverse:true
+        })
+
+
+    }
+    moveImg();
+
+    var topVal;
+    var leftVal;
+    var window3 = window.innerWidth / 3
+
+    var window2 = window.innerWidth * (2 / 3)
+
+
+
+
+
+    var prevX = 0;
+    var diffX = 0;
+
+
+    window.addEventListener('mousemove', (m) => {
+
+        diffX = m.clientX - prevX;
+
+        // console.log(prevX);
+
+
+        prevX = m.clientX;
+
+        // console.log(m.clientX,prevX,diffX,gsap.utils.clamp(-20,20,diffX));
+
+
+
+
+
+
+        ValueX(m.clientX)
+        ValueY(m.clientY)
+
+        gsap.to('.imgDivF', {
+            top: m.clientY,
+            left: m.clientX,
+            duration: .1,
+            rotate: gsap.utils.clamp(-20, 20, diffX),
+            ease: "none",
+            transform: `translate(${leftVal}%,${topVal}%)`
+
+
+        })
+        // flDiv.style.transform = `translate(${leftVal}%,${topVal}%), rotate(${gsap.utils.clamp(-20,20,diffX)})`
+
+        // console.log(window.innerWidth);
+        // console.log(window.innerHeight);
+
+
+        function ValueX(cx) {
+            if (cx < window3) {
+                leftVal = 4;
+
+            } else if ((cx > window3) && (cx < window2)) {
+                leftVal = -50
+
+
+            }
+            else {
+                leftVal = -104
+            }
+        }
+
+        function ValueY(cy) {
+            if (cy < (window.innerHeight / 2)) {
+                topVal = 4;
+
+            }
+            else {
+                topVal = -104
+            }
+        }
+    })
+
+    var overlay = document.querySelectorAll(".overlay")
+
+
+    // overlay.forEach(element => {
+    //  overlay.dataset.url=overlay.querySelector('img').src;
+    //  console.log(overlay.dataset.url);
+
+    // });
+
+    overlay.forEach(overlay => {
+
+        overlay.addEventListener('mouseover', () => {
+
+            const img = overlay.nextElementSibling;
+
+            if (img && img.tagName === 'IMG') {
+                overlay.dataset.url = img.src;
+
+                floatImg.src = overlay.dataset.url;
+            }
+
+            // floatImg.style.opacity='1'
+
+            let tl = gsap.timeline()
+
+            tl.to(floatImg, {
+                opacity: 1,
+                duration: .1,
+            })
+
+            tl.to(img, {
+                filter: 'grayscale(100%)',
+                duration: .5,
+                ease: "power2.in",
+                scale: 1.1
+            })
+
+            tl.to('img', {
+                duration: .1,
+
+                ease: 'power4.inOut',
+                onComplete: () => {
+                    t1.pause();
+                    t2.pause();
+                }
+            })
+
+        })
+
+        overlay.addEventListener('mouseout', () => {
+
+
+            const img = overlay.nextElementSibling;
+
+            if (img && img.tagName === 'IMG') {
+                // overlay.dataset.url = img.src;
+
+                // floatImg.src = overlay.dataset.url;
+            }
+
+            //  floatImg.style.opacity='0'
+
+            let tl = gsap.timeline()
+            tl.to(floatImg, {
+                opacity: 0,
+                duration: .1,
+            })
+
+            tl.to(img, {
+                filter: 'grayscale(0%)',
+                duration: .5,
+                ease: "power2.in",
+                scale: 1
+
+            })
+
+            tl.to('img', {
+                duration: .1,
+
+                ease: 'power4.inOut',
+                onComplete: () => {
+                    t1.play();
+                    t2.play();
+                }
+            })
+
+        })
+
+    });
+
+</script>
+
+</html>
